@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090d">
+  <title>VYBE | Virtual Try-On</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- MediaPipe body tracking -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.5.1675469404/pose.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="logo">VYBE<span>.</span></div>
+  <div class="live-label">● TRY-ON STUDIO</div>
+</header>
+
+<main>
+  <section class="intro">
+    <h1>See it. Wear it.<br>Make it yours.</h1>
+    <p>Your personal AI virtual fitting room.</p>
+  </section>
+
+  <section class="camera-box">
+    <video id="camera" autoplay playsinline muted></video>
+    <canvas id="overlay"></canvas>
+
+    <div class="camera-placeholder" id="placeholder">
+      <div class="camera-icon">◉</div>
+      <h3>Your fitting room is ready</h3>
+      <p>Start your camera to begin</p>
+    </div>
+
+    <div class="camera-status" id="status">CAMERA OFF</div>
+  </section>
+
+  <div class="camera-controls">
+    <button id="startBtn" class="primary">Start Camera</button>
+    <button id="stopBtn" class="secondary">Stop</button>
+    <button id="flipBtn" class="secondary">↻</button>
+  </div>
+
+  <section class="wardrobe-section">
+    <h2>Choose your outfit</h2>
+    <p class="subtitle">Select your next look</p>
+
+    <div class="wardrobe">
+      <button class="outfit active" data-look="jersey">
+        <div class="swatch jersey">⚽</div>
+        Football Kit
+      </button>
+
+      <button class="outfit" data-look="hoodie">
+        <div class="swatch hoodie">♟</div>
+        Hoodie
+      </button>
+
+      <button class="outfit" data-look="suit">
+        <div class="swatch suit">♛</div>
+        Black Suit
+      </button>
+
+      <button class="outfit" data-look="hero">
+        <div class="swatch hero">✦</div>
+        Hero Suit
+      </button>
+    </div>
+  </section>
+
+  <section class="mode-section">
+    <h2>Transformation mode</h2>
+    <div class="mode-buttons">
+      <button id="arBtn" class="mode active">Live AR</button>
+      <button id="aiBtn" class="mode">AI Realistic</button>
+    </div>
+    <p id="modeInfo">Live body-tracked outfit overlay.</p>
+  </section>
+
+  <section class="actions">
+    <button id="photoBtn" class="primary" disabled>
+      Take Photo
+    </button>
+    <button id="uploadBtn" class="secondary">
+      Upload Photo
+    </button>
+    <input type="file" id="photoInput" accept="image/*" hidden>
+  </section>
+
+  <p id="message"></p>
+
+  <footer>
+    VYBE STUDIO · YOUR VIRTUAL FITTING ROOM
+  </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
